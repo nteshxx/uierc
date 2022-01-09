@@ -83,10 +83,6 @@ def classify(request):
     return render(request, 'classify.html', {'img1': "static/ip_img.jpg"})
 
 
-def paper(request):
-    return render(request, 'paper.html')
-
-
 def algorithm(request):
     return render(request, 'algorithms.html')
 

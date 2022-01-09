@@ -20,7 +20,6 @@ urlpatterns = [
     path('restoredcp',views.get_image_dcp,name='getimagedcp'),
     path('classify',views.classify,name='classify'),
     path('predict',views.classifyimage,name='classifyimage'),
-    path('paper',views.paper,name='paper'),
     path('algorithms',views.algorithm,name='algorithm'),
     path('about-us',views.about,name='about'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
