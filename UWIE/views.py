@@ -54,6 +54,12 @@ plt.ioff()
 def index(request):
     return render(request, 'index.html')
 
+def enhanceIndex(request):
+    return render(request, 'enhance-index.html')
+
+def restoreIndex(request):
+    return render(request, 'restore-index.html')
+
 
 def clahe(request):
     return render(request, 'clahe.html', {'img1': "static/ip_img.jpg", 'v': "hidden", 'in': "visible"})

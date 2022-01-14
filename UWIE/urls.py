@@ -6,6 +6,8 @@ from .import views
 urlpatterns = [
 	path('', views.index, name='index'),
     path('home', views.index, name='index'),
+    path('enhance-index', views.enhanceIndex, name='enhance-index'),
+    path('restore-index', views.restoreIndex, name='restore-index'),
     path('clahe',views.clahe,name='clahe'),
     path('enhance',views.get_image,name='getimage'),
     path('rayleigh',views.rayleigh,name='rayleigh'),
