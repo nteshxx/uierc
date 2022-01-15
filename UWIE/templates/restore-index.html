@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>UWIE</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.container {
+			position: absolute;
+			overflow: hidden;
+			height: 100vh;
+			width: 100vw;
+		}
+
+		body {
+			height: 100vh;
+            background: linear-gradient(to right bottom, #65dfc9, #6cdbeb);
+			overflow: hidden;
+		}
+
+		.nav {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+
+		.logo {
+			color: black;
+			padding: 40px 80px;
+			cursor: pointer;
+		}
+
+		.logo:hover {
+            color: #ffffffa5;
+		}
+
+		.nav ul {
+			display: flex;
+			height: auto;
+			padding-right: 10rem;
+			margin-left: auto;
+			text-align: center;
+			font-weight: 600;
+			overflow: hidden;
+			list-style: none;
+		}
+
+		.nav li {
+			padding: 0.6rem 1.6rem;
+			border-radius: 5px;
+			cursor: pointer;
+			color: black;
+			font-family: 'Poppins', sans-serif;
+			font-style: bold;
+			transition: all 300ms ease-in-out;
+		}
+
+		.nav li:hover {
+			font-weight: bold;
+			background: linear-gradient(to right bottom, #ffffffa1, #ffffffa2);
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		#methods {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .restore-info {
+            padding: 4rem;
+            font-size: 22px;
+            letter-spacing: 1px;
+            line-height: 2rem;
+            color: white;
+        }
+
+        #restore {
+            padding: 3rem 6rem;
+        }
+
+        #restore h2 {
+            font-size: 3rem;
+            margin-bottom: 6rem;
+            color: white;
+        }
+
+        .item-list ul {
+            list-style: none;
+            line-height: 3rem;
+        }
+
+        .item-list ul a {
+            border: 1px solid #000;
+            padding: 0rem;
+            display: block;
+            margin: 3rem 4.4rem;
+            text-align: center;
+            line-height: 4rem;
+            border-radius: 8px;
+			cursor: pointer;
+			background: linear-gradient(to right bottom, #ffffffa1, #ffffffa2);
+			border: none;
+            font-size: 16px;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 600;
+			letter-spacing: 1px;
+            box-shadow: 1px 1px 16px #65dfc9;
+			transition: all 200ms ease-in-out;
+        }
+
+        .item-list ul a:hover {
+            background-color: white;
+		}
+
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="nav">
+			<h1 class="logo"><a href="/">UWIE</a></h1>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="enhance-index">Enhance</a></li>
+				<li><a href="restore-index">Restore</a></li>
+				<li><a href="classify">Classify</a></li>
+				<li><a href="algorithms">Algorithms</a></li>
+				<li><a href="about-us">About</a></li>
+			</ul>
+		</div>
+
+		<div id="methods">
+            <div class="restore-info">
+                <p>Image restoration is the process of recovering<br>
+					an image from a degraded version. <br><br>
+					It is the operation of taking a corrupt/noisy<br> 
+					image and estimating the clean, original image.<br><br>
+					Corruption may come in many forms such as<br>
+					motion blur, noise or camera mis-focus.
+				</p>
+            </div>
+			<div id="restore">
+				<h2>Restoration Methods</h2>
+				<div class="item-list">
+					<ul>
+						<li><a href="dcp">DCP</a></li>
+						<li><a href="mip">MIP</a></li>
+						<li><a href="ulap">ULAP</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div> 
+		
+	</div>
+</body>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+<script src="static/particle.js"></script>
+
+</html>

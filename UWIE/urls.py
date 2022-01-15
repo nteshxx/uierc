@@ -6,6 +6,8 @@ from .import views
 urlpatterns = [
 	path('', views.index, name='index'),
     path('home', views.index, name='index'),
+    path('enhance-index', views.enhanceIndex, name='enhance-index'),
+    path('restore-index', views.restoreIndex, name='restore-index'),
     path('clahe',views.clahe,name='clahe'),
     path('enhance',views.get_image,name='getimage'),
     path('rayleigh',views.rayleigh,name='rayleigh'),
@@ -20,7 +22,6 @@ urlpatterns = [
     path('restoredcp',views.get_image_dcp,name='getimagedcp'),
     path('classify',views.classify,name='classify'),
     path('predict',views.classifyimage,name='classifyimage'),
-    path('paper',views.paper,name='paper'),
     path('algorithms',views.algorithm,name='algorithm'),
     path('about-us',views.about,name='about'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
