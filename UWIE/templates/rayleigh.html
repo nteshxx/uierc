@@ -16,25 +16,76 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 	<title>RAYLEIGH</title>
 	<style>
-		
-		body {
-			background: #1E1F25;
-			color: #fff;
-			font-family: 'Poppins', sans-serif;
-			position: relative;
+    /* background-color & nav-bar css --Start--*/
+    * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
 		}
 
-		.head1 {
-			margin-top: 5px;
-			font-family: 'Raleway', sans-serif;
-			font-size: 25px;
-			font-weight: bold;
-			color: #fff;
-			text-align: center;
-			padding-left: 10px;
-			padding-right: 10px;
-			letter-spacing: 2px;
+		.container {
+			position: absolute;
+			height: 100vh;
+			width: 100vw;
 		}
+
+		body {
+			height: 100vh;
+      background: linear-gradient(to right bottom, #65dfc9, #6cdbeb);
+      color: #fff;
+      position: relative;
+		}
+
+		.nav {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+
+		.logo {
+			color: black;
+			padding: 40px 80px;
+			cursor: pointer;
+		}
+
+		.logo:hover {
+            color: #ffffffa5;
+		}
+
+		.nav ul {
+			display: flex;
+			height: auto;
+			padding-right: 10rem;
+			margin-left: auto;
+			text-align: center;
+			font-weight: 600;
+			overflow: hidden;
+			list-style: none;
+		}
+
+		.nav li {
+			padding: 0.6rem 1.6rem;
+			border-radius: 5px;
+			cursor: pointer;
+			color: black;
+			font-family: 'Poppins', sans-serif;
+			font-style: bold;
+			transition: all 300ms ease-in-out;
+		}
+
+		.nav li:hover {
+			font-weight: bold;
+			background: linear-gradient(to right bottom, #ffffffa1, #ffffffa2);
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+    /* background-color & nav-bar css --END--*/
+		
 
 		#op {
 			margin-left: 30px;
@@ -42,7 +93,7 @@
 		}
 
 		.head1 {
-			margin-top: 25px;
+			/* margin-top: 25px; */
 			font-family: 'Raleway', sans-serif;
 			font-size: 25px;
 			font-weight: bold;
@@ -286,10 +337,24 @@
 		Please Wait ....!
 	</div>
 </div>
-<div class="home">
+<!-- <div class="home">
 	<a href="/"><i class="fas fa-home"></i></a>
-</div>
+</div> -->
+<div class="container">
+	<div class="nav">
+	  <h1 class="logo"><a href="/">UWIE</a></h1>
+	  <ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="enhance-index">Enhance</a></li>
+		<li><a href="restore-index">Restore</a></li>
+		<li><a href="classify">Classify</a></li>
+		<li><a href="algorithms">Algorithms</a></li>
+		<li><a href="about-us">About</a></li>
+	  </ul>
+	</div>
 
+
+<!-- DEESHANT : Suggestion on load background-color should look dark so that we can observe difference in images (OUTPUT) -->
 <body id="body" onload="load()">
 	<div class="head1">
 		RAYLEIGH DISTRIBUTION

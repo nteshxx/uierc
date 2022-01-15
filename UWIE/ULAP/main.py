@@ -36,8 +36,8 @@ for i in range(len(files)):
         img = cv2.imread(folder +'/InputImages/' + file)
 
         blockSize = 9
-        gimfiltR = 50  # 引导滤波时半径的大小
-        eps = 10 ** -3  # 引导滤波时epsilon的值
+        gimfiltR = 50  # The size of the radius when guiding the filter
+        eps = 10 ** -3  # The value of epsilon during bootstrap filtering
 
         DepthMap = depthMap(img)
         DepthMap = global_stretching(DepthMap)

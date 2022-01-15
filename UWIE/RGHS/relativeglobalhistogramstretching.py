@@ -1,4 +1,4 @@
-# ———————————————————————————  左右两边选取参数进行拉伸 mode/std and 0.95%/t_n ——————————————————————————————————
+# —————  Select parameters on the left and right sides to stretch mode/std and 0.95%/t_n ————————
 
 import math
 import numpy as np
