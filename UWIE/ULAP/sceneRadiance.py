@@ -6,7 +6,7 @@ def sceneRadianceRGBULAP(img, transmission, AtomsphericLight):
     img = np.float16(img)
     for i in range(0, 3):
         sceneRadiance[:, :, i] = (img[:, :, i] - AtomsphericLight[i]) / transmission[:, :, i]  + AtomsphericLight[i]
-        # 限制透射率 在0～255
+        # Limit transmittance at 0～255
         for j in range(0, sceneRadiance.shape[0]):
             for k in range(0, sceneRadiance.shape[1]):
                 if sceneRadiance[j, k, i] > 255:

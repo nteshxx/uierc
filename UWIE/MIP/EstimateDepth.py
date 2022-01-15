@@ -19,7 +19,7 @@ def getMaxChannel(img, blockSize):
     newHeight = img.shape[0] + blockSize - 1
     newWidth = img.shape[1] + blockSize - 1
 
-    # 中间结果
+    # Intermediate results
     imgMiddle = np.zeros((newHeight, newWidth),'float64')
     imgMiddle[:, :] = 0
     imgMiddle[addSize:newHeight - addSize, addSize:newWidth - addSize] = img
