@@ -17,17 +17,10 @@
 	<title>DCP</title>
 	<style>
 
-    /* background-color & nav-bar css --Start--*/
     	* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
-		}
-
-		.container {
-			position: absolute;
-			height: 100vh;
-			width: 100vw;
 		}
 
 		body {
@@ -36,57 +29,6 @@
 			color: #fff;
 			position: relative;
 		}
-
-		.nav {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-		}
-
-		.logo {
-			color: black;
-			padding: 40px 80px;
-			cursor: pointer;
-		}
-
-		.logo:hover {
-            color: #ffffffa5;
-		}
-
-		.nav ul {
-			display: flex;
-			height: auto;
-			padding-right: 10rem;
-			margin-left: auto;
-			text-align: center;
-			font-weight: 600;
-			overflow: hidden;
-			list-style: none;
-		}
-
-		.nav li {
-			padding: 0.6rem 1.6rem;
-			border-radius: 5px;
-			cursor: pointer;
-			color: black;
-			font-family: 'Poppins', sans-serif;
-			font-style: bold;
-			transition: all 300ms ease-in-out;
-		}
-
-		.nav li:hover {
-			font-weight: bold;
-			background: linear-gradient(to right bottom, #ffffffa1, #ffffffa2);
-		}
-
-		a {
-			text-decoration: none;
-			color: inherit;
-		}
-
-    /* background-color & nav-bar css --END--*/
-		
 
 		#op {
 			margin-left: 30px;
@@ -343,18 +285,7 @@
 <!-- <div class="home">
 	<a href="/"><i class="fas fa-home"></i></a>
 </div> -->
-<div class="container">
-	<div class="nav">
-	  <h1 class="logo"><a href="/">UWIE</a></h1>
-	  <ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="enhance-index">Enhance</a></li>
-		<li><a href="restore-index">Restore</a></li>
-		<li><a href="classify">Classify</a></li>
-		<li><a href="algorithms">Algorithms</a></li>
-		<li><a href="about-us">About</a></li>
-	  </ul>
-	</div>
+{% include 'includes/navbar.html' %}		<!-- navbar added-->
 
 
 <!-- DEESHANT : Suggestion on load background-color should look dark so that we can observe difference in images (OUTPUT) -->
