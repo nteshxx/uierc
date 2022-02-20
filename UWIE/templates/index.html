@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>UWIE</title>
+	<title>UIERC</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -38,9 +38,11 @@
 		}
 
 		.main h2 {
-			font-size: 3.4rem;
+			font-size: 3rem;
+      		font-weight: 500;
+      		color: black;
+      		font-family: 'Poppins', Helvetica, sans-serif;
 			margin-top: 6rem;
-			color: white;
 		}
 
 		.hero button {
@@ -66,20 +68,9 @@
 
 
 <body>
-	<!-- <div class="container">
-		<div class="nav">
-			<h1 class="logo"><a href="/">UWIE</a></h1>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="enhance-index">Enhance</a></li>
-				<li><a href="restore-index">Restore</a></li>
-				<li><a href="classify">Classify</a></li>
-				<li><a href="algorithms">Algorithms</a></li>
-				<li><a href="about-us">About</a></li>
-			</ul>
-		</div> -->
-		{% include 'includes/navbar.html' %}		<!-- navbar added-->
+	<div class="container">
 
+		{% include 'includes/navbar.html' %}		<!-- navbar added-->
 
 		<div class="main">
 			<img src="{% static 'filter.svg' %}" />
@@ -88,39 +79,7 @@
 			    <button>Get Started</button>
 			</div>
 		</div>
-
-	<!--
-		<div id="methods">
-			<div id="enhance">
-				Enhancement Methods :
-				<div class="item-list">
-					<ul>
-						<li><a href="clahe">1. CLAHE</a></li>
-						<li><a href="rayleigh">2. Rayleigh</a></li>
-						<li><a href="rghs">3. RGHS</a></li>
-					</ul>
-				</div>
-			</div>
-			<div id="restore">
-				Restoration Methods :
-				<div class="item-list">
-					<ul>
-						<li><a href="dcp">1. DCP</a></li>
-						<li><a href="mip">2. MIP</a></li>
-						<li><a href="ulap">3. ULAP</a></li>
-					</ul>
-				</div>
-			</div>
-			<div id="classify">
-				Reef Classification :
-				<div class="item-list">
-					<ul>
-						<li><a href="classify">CLASSIFY</a></li>
-					</ul>
-				</div>
-			</div>
-		</div> 
-	-->
+		
 	</div>
 </body>
 
