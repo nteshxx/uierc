@@ -524,7 +524,11 @@ def classifyimage(request):
             ans = 'Sand'
         elif(result[-1]==5):
             ans = 'Turf'
-        percentage = 99.99
+        
+    rr = prediction[-1]
+    max = rr[np.argmax(rr)]
+    per = float(max)*100
+    percentage = round(per, 2)
     img1 = "static/Input/CLASSIFY/input.jpg"
     print( {'img1': img1, 'r': ans,'p':percentage})
     return render(request, 'classify.html', {'img1': img1, 'r': ans,'p':percentage})
