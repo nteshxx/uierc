@@ -1,4 +1,4 @@
-# UNDERWATER IMAGE ENHANCEMENT AND RESTORATION WITH REEF CLASSIFICATION
+# UNDERWATER IMAGE ENHANCEMENT AND RESTORATION WITH REEF CLASSIFICATION (UIERC)
 
   The main objective of the Project is to reduce the noises in the Underwater Images.
 We propose some methods for efficient removal of Noises using Image Processing Techniques.
