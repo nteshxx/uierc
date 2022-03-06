@@ -44,7 +44,7 @@ import os
 from keras.models import load_model
 from keras.preprocessing import image as image_utils
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 import matplotlib
 matplotlib.use('Agg')
@@ -479,6 +479,58 @@ def restoreULAP(folder):
     plt.close(op)
 
 def classifyimage(request):
+
+    folder = "UWIE/static/Input/CLASSIFY/"
+
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+
+    shutil.rmtree(folder)
+
+    ans = None
+    model = load_model('keras_model.h5')
+    if request.method == "POST":
+        in_img = request.FILES['image']
+        in_img.name = "input.jpg"
+        input = InputClassify(img=in_img)
+        input.save()
+    
+
+
+        data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+        image = input 
+        image = Image.open(folder + 'input.jpg')
+
+        size = (224, 224)
+        image = ImageOps.fit(image, size, Image.ANTIALIAS)
+
+        image_array = np.asarray(image)
+        normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+        data[0] = normalized_image_array
+
+        prediction = model.predict(data)
+
+        result = np.where(prediction == np.amax(prediction))
+
+        if(result[-1]==0):
+            ans = 'Macro'
+        elif(result[-1]==1):
+            ans = 'Monti'
+        elif(result[-1]==2):
+            ans = 'Pocill'
+        if(result[-1]==3):
+            ans = 'Porit'
+        elif(result[-1]==4):
+            ans = 'Sand'
+        elif(result[-1]==5):
+            ans = 'Turf'
+        percentage = 99.99
+    img1 = "static/Input/CLASSIFY/input.jpg"
+    print( {'img1': img1, 'r': ans,'p':percentage})
+    return render(request, 'classify.html', {'img1': img1, 'r': ans,'p':percentage})
+
+# akhil model
+def classifyimage_older(request):
     dataset_list = ["Macro", "Monti", "Pocill", "Porit", "Sand", "Turf"]
     folder = "UWIE/static/Input/CLASSIFY/"
 
@@ -522,6 +574,7 @@ def classifyimage(request):
     print( {'img1': img1, 'r': ans,'p':percentage})
     return render(request, 'classify.html', {'img1': img1, 'r': ans,'p':percentage})
 
+# original model
 def classifyimage_old(request):
     folder = "UWIE/static/Input/CLASSIFY/"
 
