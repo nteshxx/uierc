@@ -22,7 +22,7 @@
     body {
       background: linear-gradient(to right bottom, #65dfc9, #6cdbeb);
       height: 100vh;
-			overflow: hidden;
+			/* overflow: hidden; */
     }
 
     .reef-title {
@@ -241,8 +241,11 @@
       margin-bottom: 1rem;
     }
 
+    #macro,
+    #monti,
+    #sand,
+    #porit,
     #pocill,
-    #acro,
     #turf {
       display: none;
     }
@@ -313,23 +316,79 @@
             </ul>
           </div>
         </div>
-        <div id="acro">
+        <div id="macro">
           <div class="classH">
-            <h3>ACROPORA</h3>
+            <h3>MACROALGAE</h3>
           </div>
           <div class="info">
-            Acropora is a genus of small polyp stony coral in the phylum Cnidaria.
-           Some of its species are known as table coral, elkhorn coral, and staghorn coral.
+            Macro info
           </div> 
           <div class="sci">
             <h3>Scientific Information</h3>
             <ul>
-              <li>Kingdom:  Animalia</li>
-              <li>Phylum:  Cnidaria</li>
-              <li>Class:  Anthozoa</li>
-              <li>Order:  Scleractinia</li>
-              <li>Family:  Acroporidae</li>
-              <li>Genus:  Acropora</li>
+              <li>Kingdom:  </li>
+              <li>Phylum:  </li>
+              <li>Class:  </li>
+              <li>Order:  </li>
+              <li>Family:  </li>
+              <li>Genus:  </li>
+            </ul>
+          </div>
+        </div>
+        <div id="monti">
+          <div class="classH">
+            <h3>MONTI</h3>
+          </div>
+          <div class="info">
+            Monti info
+          </div> 
+          <div class="sci">
+            <h3>Scientific Information</h3>
+            <ul>
+              <li>Kingdom:  </li>
+              <li>Phylum:  </li>
+              <li>Class:  </li>
+              <li>Order:  </li>
+              <li>Family:  </li>
+              <li>Genus:  </li>
+            </ul>
+          </div>
+        </div>
+        <div id="porit">
+          <div class="classH">
+            <h3>PORIT</h3>
+          </div>
+          <div class="info">
+            Porit info
+          </div> 
+          <div class="sci">
+            <h3>Scientific Information</h3>
+            <ul>
+              <li>Kingdom:  </li>
+              <li>Phylum:  </li>
+              <li>Class:  </li>
+              <li>Order:  </li>
+              <li>Family:  </li>
+              <li>Genus:  </li>
+            </ul>
+          </div>
+        </div>
+        <div id="sand">
+          <div class="classH">
+            <h3>SAND</h3>
+          </div>
+          <div class="info">
+            Sand info
+          </div> 
+          <div class="sci">
+            <h3>Scientific Information</h3>
+            <ul>
+              <li>Kingdom:  </li>
+              <li>Phylum:  </li>
+              <li>Class:  </li>
+              <li>Order:  </li>
+              <li>Family:  </li>
+              <li>Genus:  </li>
             </ul>
           </div>
         </div>
@@ -385,19 +444,39 @@
     var ip1 = document.getElementById('input_img');
     ip1.src = '{{ img1 }}';
     var r = '{{ r }}'
-    console.log(r);
-    if ( r == "P") {
-      console.log("in if",r);
+    console.log("result -> ", r);
+    // "Macro", "Monti", "Pocill", "Porit", "Sand", "Turf" 
+    if (r == "Macro"){
+      console.log("a result -> ", r);
+      document.getElementById('macro').style.display = 'block'
+      document.getElementById('perc').style.display = "block"
+    }
+    else if (r == "Monti"){
+      console.log("b result -> ", r);
+      document.getElementById('monti').style.display = 'block'
+      document.getElementById('perc').style.display = "block"
+    }
+    else if (r == "Pocill") {
+      console.log("c result -> ", r);
       document.getElementById('pocill').style.display = 'block'
       document.getElementById('perc').style.display = "block"
     }
-    else if(r == "A"){
-      document.getElementById('acro').style.display = 'block'
+    else if (r == "Porit"){
+      console.log("d result -> ", r);
+      document.getElementById('porit').style.display = 'block'
       document.getElementById('perc').style.display = "block"
     }
-    else if(r == "T"){
+    else if (r == "Sand") {
+      console.log("e result -> ", r);
+      document.getElementById('sand').style.display = 'block'
+      document.getElementById('perc').style.display = "block"
+    }
+    else if (r == "Turf") {
+      console.log("f result -> ", r);
       document.getElementById('turf').style.display = 'block'
       document.getElementById('perc').style.display = "block"
+    } else if (r == '') {
+      console.log('this executed')
     }
   }
 </script>
