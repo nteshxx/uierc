@@ -2,9 +2,11 @@ version: '3.8'
 
 services:
   web:
+    container_name: uierc
+    image: uierc:3.0.0
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
+    command: python manage.py runserver
     ports:
       - "8000:8000"
+    environment:
+      - EXTERNAL_PORT=8000
