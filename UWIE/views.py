@@ -478,6 +478,7 @@ def restoreULAP(folder):
     op.savefig(folder+'/Output/ULAP/hist_op.jpg')
     plt.close(op)
 
+@csrf_exempt
 def classifyimage(request):
 
     folder = "UWIE/static/Input/CLASSIFY/"
