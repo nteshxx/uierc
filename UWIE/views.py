@@ -50,6 +50,7 @@ import matplotlib
 matplotlib.use('Agg')
 plt.ioff()
 
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     return render(request, 'index.html')
