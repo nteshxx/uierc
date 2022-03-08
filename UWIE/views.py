@@ -50,8 +50,6 @@ import matplotlib
 matplotlib.use('Agg')
 plt.ioff()
 
-from django.views.decorators.csrf import csrf_exempt
-
 def index(request):
     return render(request, 'index.html')
 
@@ -479,7 +477,6 @@ def restoreULAP(folder):
     op.savefig(folder+'/Output/ULAP/hist_op.jpg')
     plt.close(op)
 
-@csrf_exempt
 def classifyimage(request):
 
     folder = "UWIE/static/Input/CLASSIFY/"
