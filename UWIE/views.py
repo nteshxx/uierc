@@ -50,7 +50,6 @@ import matplotlib
 matplotlib.use('Agg')
 plt.ioff()
 
-
 def index(request):
     return render(request, 'index.html')
 
@@ -478,6 +477,7 @@ def restoreULAP(folder):
     op.savefig(folder+'/Output/ULAP/hist_op.jpg')
     plt.close(op)
 
+# akhil's classification
 def classifyimage(request):
 
     folder = "UWIE/static/Input/CLASSIFY/"
@@ -531,101 +531,4 @@ def classifyimage(request):
     percentage = round(per, 2)
     img1 = "static/Input/CLASSIFY/input.jpg"
     print( {'img1': img1, 'r': ans,'p':percentage})
-    return render(request, 'classify.html', {'img1': img1, 'r': ans,'p':percentage})
-
-# akhil model
-def classifyimage_older(request):
-    dataset_list = ["Macro", "Monti", "Pocill", "Porit", "Sand", "Turf"]
-    folder = "UWIE/static/Input/CLASSIFY/"
-
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-
-    shutil.rmtree(folder)
-
-    ans = None
-
-    if request.method == "POST":
-        in_img = request.FILES['image']
-        in_img.name = "input.jpg"
-        input = InputClassify(img=in_img)
-        input.save()
-
-        img_width, img_height = 100, 100
-        
-        model = load_model("keras_model.h5")
-
-        # BytesIO(response.content))
-        test_image = Image.open(folder+"input.jpg")
-        # put_image = test_image.resize((400, 400))
-        test_image = test_image.resize((100, 100))
-        test_image = image_utils.img_to_array(test_image)
-        test_image = np.expand_dims(test_image, axis=0)
-
-        result = model.predict(test_image)
-        #print(result)
-
-        rr = result[0]
-       
-        ans = np.argmax(rr)
-        ans = dataset_list[ans]
-
-        max = rr[np.argmax(rr)]
-        #print(float(max)*100)
-        percentage = "{:.2f}".format(float(max)*100)
-
-    img1 = "static/Input/CLASSIFY/input.jpg"
-    print( {'img1': img1, 'r': ans,'p':percentage})
-    return render(request, 'classify.html', {'img1': img1, 'r': ans,'p':percentage})
-
-# original model
-def classifyimage_old(request):
-    folder = "UWIE/static/Input/CLASSIFY/"
-
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-
-    shutil.rmtree(folder)
-
-    ans = None
-
-    if request.method == "POST":
-        in_img = request.FILES['image']
-        in_img.name = "input.jpg"
-        input = InputClassify(img=in_img)
-        input.save()
-
-        img_width, img_height = 128, 128
-        model = 'UWIE/CLASSIFY/models'
-        model_path = model+'/model_25.h5'
-        model_weights_path = model+'/weights_25.h5'
-        model = load_model(model_path)
-        model.load_weights(model_weights_path)
-        # BytesIO(response.content))
-        test_image = Image.open(folder+"input.jpg")
-        # put_image = test_image.resize((400, 400))
-        test_image = test_image.resize((128, 128))
-        test_image = image_utils.img_to_array(test_image)
-        test_image = np.expand_dims(test_image, axis=0)
-
-        result = model.predict(test_image)
-        print(result)
-
-        rr = result[0]
-        print(np.argmax(rr))
-        if np.argmax(rr) == 0:
-            ans = 'A'
-        elif np.argmax(rr) == 1:
-            ans = 'P'
-        elif np.argmax(rr) == 2:
-            ans = "T"
-        else:
-            ans = "None"
-        print("prediction", ans)
-
-        max = rr[np.argmax(rr)]
-        print(float(max)*100)
-        percentage = "{:.2f}".format(float(max)*100)
-
-    img1 = "static/Input/CLASSIFY/input.jpg"
     return render(request, 'classify.html', {'img1': img1, 'r': ans,'p':percentage})
