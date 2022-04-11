@@ -1,21 +1,6 @@
 from django.db import models
 # Create your models here.
 
-
-class InputCLAHE(models.Model):
-	img = models.ImageField(upload_to = "UWIE/static/Input/CLAHE/")
-	def __str__(self):
-		return self.img
-
-class InputRAY(models.Model):
-	img = models.ImageField(upload_to = "UWIE/static/Input/RAY/")
-	def __str__(self):
-		return self.img
-
-class InputDCP(models.Model):
-	img = models.ImageField(upload_to = "UWIE/static/Input/DCP/")
-	def __str__(self):
-		return self.img
 	
 class InputMIP(models.Model):
 	img = models.ImageField(upload_to = "UWIE/static/Input/MIP/")
@@ -24,11 +9,6 @@ class InputMIP(models.Model):
 
 class InputRGHS(models.Model):
 	img = models.ImageField(upload_to = "UWIE/static/Input/RGHS/")
-	def __str__(self):
-		return self.img
-
-class InputULAP(models.Model):
-	img = models.ImageField(upload_to = "UWIE/static/Input/ULAP/")
 	def __str__(self):
 		return self.img
 
