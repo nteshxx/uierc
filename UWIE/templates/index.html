@@ -27,7 +27,7 @@
 
 		.main img {
 			height: 26rem;
-			margin: 4rem 10rem;
+			margin: 4rem 8rem;
 			width: auto;
 		}
 
@@ -42,12 +42,12 @@
       		font-weight: 500;
       		color: black;
       		font-family: 'Poppins', Helvetica, sans-serif;
-			margin-top: 6rem;
+			margin-top: 2rem;
 		}
 
 		.hero button {
-			padding: 0.8rem 3rem;
-			margin-top: 6rem;
+			padding: 1rem 3rem;
+			margin: 5rem 1rem;
 			border-radius: 8px;
 			cursor: pointer;
 			background: linear-gradient(to right bottom, #ffffffa1, #ffffffa2);
@@ -63,6 +63,12 @@
             background-color: white;
 		}
 
+		.navigation {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
 	</style>
 </head>
 
@@ -75,8 +81,12 @@
 		<div class="main">
 			<img src="{% static 'filter.svg' %}" />
 			<div class="hero">
-                <h2>Filter your underwater<br>images,<br>with just a simple click!</h2>
-			    <button onclick="document.location='enhance-index'">Get Started</button>
+                <h2>Underwater Image <br>Enhancement, <br>and Restoration <br>with Reef Classification.</h2>
+			  <div class="navigation">
+			    <button onclick="document.location='rghs'">Enhance</button>
+				<button onclick="document.location='mip'">Restore</button>
+				<button onclick="document.location='classify'">Classification</button>
+			  </div>
 			</div>
 		</div>
 		

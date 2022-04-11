@@ -50,6 +50,7 @@ import matplotlib
 matplotlib.use('Agg')
 plt.ioff()
 
+
 def index(request):
     return render(request, 'index.html')
 
@@ -477,7 +478,6 @@ def restoreULAP(folder):
     op.savefig(folder+'/Output/ULAP/hist_op.jpg')
     plt.close(op)
 
-# akhil's classification
 def classifyimage(request):
 
     folder = "UWIE/static/Input/CLASSIFY/"
@@ -531,4 +531,4 @@ def classifyimage(request):
     percentage = round(per, 2)
     img1 = "static/Input/CLASSIFY/input.jpg"
     print( {'img1': img1, 'r': ans,'p':percentage})
-    return render(request, 'classify.html', {'img1': img1, 'r': ans,'p':percentage})
+    return render(request, 'classify.html', {'img1': img1, 'r': ans})

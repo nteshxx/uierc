@@ -25,12 +25,12 @@
     }
 
     .reef-title {
-      margin-bottom: 0.2rem;
       font-size: 2rem;
       font-weight: 600;
       color: black;
       font-family: 'Poppins', Helvetica, sans-serif;
-      margin-left: 15rem;
+      margin: 0rem auto 1rem auto;
+      text-align: center;
     }
 
     .content {
@@ -55,7 +55,7 @@
     .input_image {
       width: 400px;
       height: 400px;
-      margin: auto 10%;
+      margin: auto;
       border: none;
       border-radius: 15px;
       overflow: hidden;
@@ -67,7 +67,7 @@
     }
 
     form {
-      margin: 20px 50%;
+      margin: 20px;
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -82,9 +82,8 @@
 
     /* button start */
     .upload-button {
-      margin-top: 1rem;
-      margin-right: 8rem;
-      padding: 0.8rem 2rem;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
 			border-radius: 8px;
 			cursor: pointer;
 			background: linear-gradient(to right bottom, #ffffffa1, #ffffffa2);
@@ -419,9 +418,6 @@
             </ul>
           </div>
         </div>
-        <div id="perc" class="percentage">
-          Prediction Percentage : {{ p }}%
-        </div>
       </div>
     </div>
   </div>
@@ -439,7 +435,6 @@
       output.src = reader.result;
     }
     /* clear output screen */
-    document.getElementById('perc').style.display = 'none'
     document.getElementById('macro').style.display = 'none'
     document.getElementById('monti').style.display = 'none'
     document.getElementById('turf').style.display = 'none'
@@ -463,27 +458,21 @@
     // "Macro", "Monti", "Pocill", "Porit", "Sand", "Turf" 
     if (r == "Macro") {
       document.getElementById('macro').style.display = 'block'
-      document.getElementById('perc').style.display = "block"
     }
     else if (r == "Monti"){
       document.getElementById('monti').style.display = 'block'
-      document.getElementById('perc').style.display = "block"
     }
     else if (r == "Pocill") {
       document.getElementById('pocill').style.display = 'block'
-      document.getElementById('perc').style.display = "block"
     }
     else if (r == "Porit"){
       document.getElementById('porit').style.display = 'block'
-      document.getElementById('perc').style.display = "block"
     }
     else if (r == "Sand") {
       document.getElementById('sand').style.display = 'block'
-      document.getElementById('perc').style.display = "block"
     }
     else if (r == "Turf") {
       document.getElementById('turf').style.display = 'block'
-      document.getElementById('perc').style.display = "block"
     }
   }
 </script>
