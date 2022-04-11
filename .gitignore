@@ -3,3 +3,4 @@ UWIE/static/Output/
 staticfiles
 env
 Reef_Images
+*.pyc
