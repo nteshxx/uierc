@@ -240,7 +240,6 @@
 
 {% include 'includes/navbar.html' %}		<!-- navbar added-->
 
-<!-- DEESHANT : Suggestion on load background-color should look dark so that we can observe difference in images (OUTPUT) -->
 <body id="body" onload="load()">
 	<div class="head1">
 		RESTORE
@@ -249,7 +248,7 @@
 		<div class="input_image">
 			<img id="input_img" alt="input" />
 		</div>
-		<form id="form" method="post" action="{% url "getimagemip" %}" enctype="multipart/form-data">
+		<form id="form" method="post" action="{% url "getimageRestore" %}" enctype="multipart/form-data">
 			{% csrf_token %}
 			<input id="input_f" type="file" style="display: none;" name="image" onchange="get_image(event)">
 			<input class="upload-button" type="button" id="select" value="Select Image">

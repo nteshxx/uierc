@@ -15,7 +15,7 @@ from .ENHANCE.global_stretching_RGB import stretching
 
 from matplotlib import pyplot as plt
 from django.shortcuts import render
-from .models import InputMIP, InputClassify, InputRGHS
+from .models import InputRestore, InputClassify, InputEnhance
 
 import cv2
 import shutil
@@ -62,7 +62,7 @@ def get_image_mip(request):
     if request.method == "POST":
         in_img = request.FILES['image']
         in_img.name = "input.jpg"
-        input = InputMIP(img=in_img)
+        input = InputRestore(img=in_img)
         input.save()
         restoreMIP("UWIE/static")
         img1 = "static/Input/MIP/input.jpg"
@@ -126,7 +126,7 @@ def get_image_rghs(request):
     if request.method == "POST":
         in_img = request.FILES['image']
         in_img.name = "input.jpg"
-        input = InputRGHS(img=in_img)
+        input = InputEnhance(img=in_img)
         input.save()
         enhanceRGHS("UWIE/static")
         img1 = "static/Input/RGHS/input.jpg"

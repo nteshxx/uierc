@@ -2,12 +2,12 @@ from django.db import models
 # Create your models here.
 
 	
-class InputMIP(models.Model):
+class InputRestore(models.Model):
 	img = models.ImageField(upload_to = "UWIE/static/Input/MIP/")
 	def __str__(self):
 		return self.img
 
-class InputRGHS(models.Model):
+class InputEnhance(models.Model):
 	img = models.ImageField(upload_to = "UWIE/static/Input/RGHS/")
 	def __str__(self):
 		return self.img
