@@ -3,12 +3,12 @@ from django.db import models
 
 	
 class InputRestore(models.Model):
-	img = models.ImageField(upload_to = "UWIE/static/Input/MIP/")
+	img = models.ImageField(upload_to = "UWIE/static/Input/RESTORED/")
 	def __str__(self):
 		return self.img
 
 class InputEnhance(models.Model):
-	img = models.ImageField(upload_to = "UWIE/static/Input/RGHS/")
+	img = models.ImageField(upload_to = "UWIE/static/Input/ENHANCED/")
 	def __str__(self):
 		return self.img
 

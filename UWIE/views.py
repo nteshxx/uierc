@@ -54,10 +54,10 @@ def about(request):
 
 
 def get_image_restore(request):
-    if not os.path.exists("UWIE/static/Input/MIP/"):
-        os.makedirs("UWIE/static/Input/MIP/")
+    if not os.path.exists("UWIE/static/Input/RESTORED/"):
+        os.makedirs("UWIE/static/Input/RESTORED/")
 
-    shutil.rmtree("UWIE/static/Input/MIP/")
+    shutil.rmtree("UWIE/static/Input/RESTORED/")
 
     if request.method == "POST":
         in_img = request.FILES['image']
@@ -65,19 +65,19 @@ def get_image_restore(request):
         input = InputRestore(img=in_img)
         input.save()
         restoreMethod("UWIE/static")
-        img1 = "static/Input/MIP/input.jpg"
-        img2 = "MIP.jpg"
+        img1 = "static/Input/RESTORED/input.jpg"
+        img2 = "RESTORED.jpg"
         hist_in = "hist_in.jpg"
         hist_out = "hist_op.jpg"
-    return render(request, 'restore.html', {'img1': img1, 'img2': img2, 'D': "MIP_diff.jpg",'hist_in': hist_in,'hist_out': hist_out,
-                                        'TR': "MIP_tr.jpg", 'RT': "MIP_rtra.jpg", 'TM': "MIP_TM.jpg", 'in': 'none'})
+    return render(request, 'restore.html', {'img1': img1, 'img2': img2, 'D': "RESTORED_diff.jpg",'hist_in': hist_in,'hist_out': hist_out,
+                                        'TR': "RESTORED_tr.jpg", 'RT': "RESTORED_rtra.jpg", 'TM': "RESTORED_TM.jpg", 'in': 'none'})
 
 
 def restoreMethod(folder):
-    img = cv2.imread(folder + '/Input/MIP/input.jpg')
+    img = cv2.imread(folder + '/Input/RESTORED/input.jpg')
 
-    if not os.path.exists(folder+"/Output/MIP/"):
-        os.makedirs(folder+"/Output/MIP/")
+    if not os.path.exists(folder+"/Output/RESTORED/"):
+        os.makedirs(folder+"/Output/RESTORED/")
 
     blockSize = 9
 
@@ -99,29 +99,29 @@ def restoreMethod(folder):
     sceneRadiance = sceneRadianceRGBMIP(
         img, transmission, AtomsphericLight)
 
-    cv2.imwrite(folder + '/Output/MIP/' + 'MIP_TM.jpg',
+    cv2.imwrite(folder + '/Output/RESTORED/' + 'RESTORED_TM.jpg',
                 np.uint8(transmission * 255))
-    cv2.imwrite(folder + '/Output/MIP/' + 'MIP_diff.jpg', np.uint8(Diff * 255))
-    cv2.imwrite(folder + '/Output/MIP/' + 'MIP_tr.jpg', np.uint8(Tr * 255))
-    cv2.imwrite(folder + '/Output/MIP/' + 'MIP_rtra.jpg', np.uint8(Rtr * 255))
-    cv2.imwrite(folder + '/Output/MIP/' + 'MIP.jpg', sceneRadiance)
+    cv2.imwrite(folder + '/Output/RESTORED/' + 'RESTORED_diff.jpg', np.uint8(Diff * 255))
+    cv2.imwrite(folder + '/Output/RESTORED/' + 'RESTORED_tr.jpg', np.uint8(Tr * 255))
+    cv2.imwrite(folder + '/Output/RESTORED/' + 'RESTORED_rtra.jpg', np.uint8(Rtr * 255))
+    cv2.imwrite(folder + '/Output/RESTORED/' + 'RESTORED.jpg', sceneRadiance)
 
     inp = plt.figure()
     plt.hist(img.flatten(), 256, [0, 256])
-    inp.savefig(folder+'/Output/MIP/hist_in.jpg')
+    inp.savefig(folder+'/Output/RESTORED/hist_in.jpg')
     plt.close(inp)
 
     op = plt.figure()
     plt.hist(sceneRadiance.flatten(), 256, [0, 256])
-    op.savefig(folder+'/Output/MIP/hist_op.jpg')
+    op.savefig(folder+'/Output/RESTORED/hist_op.jpg')
     plt.close(op)
 
 
 def get_image_enhance(request):
-    if not os.path.exists("UWIE/static/Input/RGHS/"):
-        os.makedirs("UWIE/static/Input/RGHS/")
+    if not os.path.exists("UWIE/static/Input/ENHANCED/"):
+        os.makedirs("UWIE/static/Input/ENHANCED/")
 
-    shutil.rmtree("UWIE/static/Input/RGHS/")
+    shutil.rmtree("UWIE/static/Input/ENHANCED/")
 
     if request.method == "POST":
         in_img = request.FILES['image']
@@ -129,18 +129,18 @@ def get_image_enhance(request):
         input = InputEnhance(img=in_img)
         input.save()
         enhanceMethod("UWIE/static")
-        img1 = "static/Input/RGHS/input.jpg"
-        img2 = "RGHS.jpg"
+        img1 = "static/Input/ENHANCED/input.jpg"
+        img2 = "ENHANCED.jpg"
         hist_in = "hist_in.jpg"
         hist_out = "hist_op.jpg"
-    return render(request, 'enhance.html', {'img1': img1, 'img2': img2, 'R': "RGHS_RGB.jpg", 'S': "RGHS_stretch.jpg", 'in': 'none','hist_in': hist_in,'hist_out': hist_out,})
+    return render(request, 'enhance.html', {'img1': img1, 'img2': img2, 'R': "ENHANCED_RGB.jpg", 'S': "ENHANCED_stretch.jpg", 'in': 'none','hist_in': hist_in,'hist_out': hist_out,})
 
 
 def enhanceMethod(folder):
-    img = cv2.imread(folder + '/Input/RGHS/input.jpg')
+    img = cv2.imread(folder + '/Input/ENHANCED/input.jpg')
 
-    if not os.path.exists(folder+"/Output/RGHS/"):
-        os.makedirs(folder+"/Output/RGHS/")
+    if not os.path.exists(folder+"/Output/ENHANCED/"):
+        os.makedirs(folder+"/Output/ENHANCED/")
 
     height = len(img)
 
@@ -149,26 +149,23 @@ def enhanceMethod(folder):
     sceneRadiance = img
 
     sceneRadiance = RGB_equalisation_RGHS(img)
-    cv2.imwrite(folder+'/Output/RGHS/'+'RGHS_RGB.jpg', sceneRadiance)
-
-    # sceneRadiance1 = RelativeGHstretching(sceneRadiance, height, width)
-    # cv2.imwrite(folder+'/Output/RGHS/'+'RGHS_GH.jpg',sceneRadiance1)
+    cv2.imwrite(folder+'/Output/ENHANCED/'+'ENHANCED_RGB.jpg', sceneRadiance)
 
     sceneRadiance = stretching(sceneRadiance)
-    cv2.imwrite(folder+'/Output/RGHS/'+'RGHS_stretch.jpg', sceneRadiance)
+    cv2.imwrite(folder+'/Output/ENHANCED/'+'ENHANCED_stretch.jpg', sceneRadiance)
 
     sceneRadiance = LABStretching(sceneRadiance)
 
-    cv2.imwrite(folder+'/Output/RGHS/'+'RGHS.jpg', sceneRadiance)
+    cv2.imwrite(folder+'/Output/ENHANCED/'+'ENHANCED.jpg', sceneRadiance)
 
     inp = plt.figure()
     plt.hist(img.flatten(), 256, [0, 256])
-    inp.savefig(folder+'/Output/RGHS/hist_in.jpg')
+    inp.savefig(folder+'/Output/ENHANCED/hist_in.jpg')
     plt.close(inp)
 
     op = plt.figure()
     plt.hist(sceneRadiance.flatten(), 256, [0, 256])
-    op.savefig(folder+'/Output/RGHS/hist_op.jpg')
+    op.savefig(folder+'/Output/ENHANCED/hist_op.jpg')
     plt.close(op)
 
 
