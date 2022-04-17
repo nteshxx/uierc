@@ -1,17 +1,17 @@
-from .MIP.sceneRadiance import sceneRadianceRGBMIP
-from .MIP.TM import getTransmission
-from .MIP.getRefinedTramsmission import Refinedtransmission
-from .MIP.EstimateDepth import DepthMap
-from .MIP.BL import getAtomsphericLight
+from .RESTORE.sceneRadiance import sceneRadianceRGBMIP
+from .RESTORE.TM import getTransmission
+from .RESTORE.getRefinedTramsmission import Refinedtransmission
+from .RESTORE.EstimateDepth import DepthMap
+from .RESTORE.BL import getAtomsphericLight
 
 from .DCP.GuidedFilter import GuidedFilter
 from .DCP.main import getMinChannel
 from .DCP.main import getDarkChannel
 from .DCP.main import getAtomsphericLight
 
-from .RGHS.LabStretching import LABStretching
-from .RGHS.color_equalisation import RGB_equalisation_RGHS
-from .RGHS.global_stretching_RGB import stretching
+from .ENHANCE.LabStretching import LABStretching
+from .ENHANCE.color_equalisation import RGB_equalisation_RGHS
+from .ENHANCE.global_stretching_RGB import stretching
 
 from matplotlib import pyplot as plt
 from django.shortcuts import render
@@ -38,11 +38,11 @@ def index(request):
 
 
 def mip(request):
-    return render(request, 'mip.html', {'img1': "static/ip_img.jpg", 'v': "hidden", 'in': "visible"})
+    return render(request, 'restore.html', {'img1': "static/ip_img.jpg", 'v': "hidden", 'in': "visible"})
 
 
 def rghs(request):
-    return render(request, 'rghs.html', {'img1': "static/ip_img.jpg", 'v': "hidden", 'in': "visible"})
+    return render(request, 'enhance.html', {'img1': "static/ip_img.jpg", 'v': "hidden", 'in': "visible"})
 
 
 def classify(request):
@@ -69,7 +69,7 @@ def get_image_mip(request):
         img2 = "MIP.jpg"
         hist_in = "hist_in.jpg"
         hist_out = "hist_op.jpg"
-    return render(request, 'mip.html', {'img1': img1, 'img2': img2, 'D': "MIP_diff.jpg",'hist_in': hist_in,'hist_out': hist_out,
+    return render(request, 'restore.html', {'img1': img1, 'img2': img2, 'D': "MIP_diff.jpg",'hist_in': hist_in,'hist_out': hist_out,
                                         'TR': "MIP_tr.jpg", 'RT': "MIP_rtra.jpg", 'TM': "MIP_TM.jpg", 'in': 'none'})
 
 
@@ -133,7 +133,7 @@ def get_image_rghs(request):
         img2 = "RGHS.jpg"
         hist_in = "hist_in.jpg"
         hist_out = "hist_op.jpg"
-    return render(request, 'rghs.html', {'img1': img1, 'img2': img2, 'R': "RGHS_RGB.jpg", 'S': "RGHS_stretch.jpg", 'in': 'none','hist_in': hist_in,'hist_out': hist_out,})
+    return render(request, 'enhance.html', {'img1': img1, 'img2': img2, 'R': "RGHS_RGB.jpg", 'S': "RGHS_stretch.jpg", 'in': 'none','hist_in': hist_in,'hist_out': hist_out,})
 
 
 def enhanceRGHS(folder):

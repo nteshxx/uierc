@@ -38,5 +38,3 @@ for i in range(len(files)):
         cv2.imwrite(folder+'/OutputImages/' + prefix + '_MIP_TM.jpg', np.uint8(transmission * 255))
         cv2.imwrite(folder+'/OutputImages/' + prefix + '_MIP.jpg', sceneRadiance)
 
-
-# Deeshant
