@@ -14,7 +14,7 @@ if __name__ == '__main__':
     pass
 
 
-folder = "C:/Users/shamil/Desktop"
+folder = "C:/Users/Administrator/Desktop"
 path = folder + "/InputImages"
 files = os.listdir(path)
 files =  natsort.natsorted(files)
