@@ -37,11 +37,11 @@ def index(request):
     return render(request, 'index.html')
 
 
-def mip(request):
+def restore(request):
     return render(request, 'restore.html', {'img1': "static/ip_img.jpg", 'v': "hidden", 'in': "visible"})
 
 
-def rghs(request):
+def enhance(request):
     return render(request, 'enhance.html', {'img1': "static/ip_img.jpg", 'v': "hidden", 'in': "visible"})
 
 
@@ -53,7 +53,7 @@ def about(request):
     return render(request, 'about.html')
 
 
-def get_image_mip(request):
+def get_image_restore(request):
     if not os.path.exists("UWIE/static/Input/MIP/"):
         os.makedirs("UWIE/static/Input/MIP/")
 
@@ -64,7 +64,7 @@ def get_image_mip(request):
         in_img.name = "input.jpg"
         input = InputRestore(img=in_img)
         input.save()
-        restoreMIP("UWIE/static")
+        restoreMethod("UWIE/static")
         img1 = "static/Input/MIP/input.jpg"
         img2 = "MIP.jpg"
         hist_in = "hist_in.jpg"
@@ -73,7 +73,7 @@ def get_image_mip(request):
                                         'TR': "MIP_tr.jpg", 'RT': "MIP_rtra.jpg", 'TM': "MIP_TM.jpg", 'in': 'none'})
 
 
-def restoreMIP(folder):
+def restoreMethod(folder):
     img = cv2.imread(folder + '/Input/MIP/input.jpg')
 
     if not os.path.exists(folder+"/Output/MIP/"):
@@ -117,7 +117,7 @@ def restoreMIP(folder):
     plt.close(op)
 
 
-def get_image_rghs(request):
+def get_image_enhance(request):
     if not os.path.exists("UWIE/static/Input/RGHS/"):
         os.makedirs("UWIE/static/Input/RGHS/")
 
@@ -128,7 +128,7 @@ def get_image_rghs(request):
         in_img.name = "input.jpg"
         input = InputEnhance(img=in_img)
         input.save()
-        enhanceRGHS("UWIE/static")
+        enhanceMethod("UWIE/static")
         img1 = "static/Input/RGHS/input.jpg"
         img2 = "RGHS.jpg"
         hist_in = "hist_in.jpg"
@@ -136,7 +136,7 @@ def get_image_rghs(request):
     return render(request, 'enhance.html', {'img1': img1, 'img2': img2, 'R': "RGHS_RGB.jpg", 'S': "RGHS_stretch.jpg", 'in': 'none','hist_in': hist_in,'hist_out': hist_out,})
 
 
-def enhanceRGHS(folder):
+def enhanceMethod(folder):
     img = cv2.imread(folder + '/Input/RGHS/input.jpg')
 
     if not os.path.exists(folder+"/Output/RGHS/"):
