@@ -243,7 +243,7 @@
 <!-- DEESHANT : Suggestion on load background-color should look dark so that we can observe difference in images (OUTPUT) -->
 <body id="body" onload="load()">
 	<div class="head1">
-		MAXIMUM INTENSITY PROJECTION
+		RESTORE
 	</div>
 	<div class="input" id="input">
 		<div class="input_image">
@@ -253,7 +253,7 @@
 			{% csrf_token %}
 			<input id="input_f" type="file" style="display: none;" name="image" onchange="get_image(event)">
 			<input class="upload-button" type="button" id="select" value="Select Image">
-			<input class="upload-button" id="apply_btn" type="button" value="Apply MIP">
+			<input class="upload-button" id="apply_btn" type="button" value="Restore">
 			<input type="submit" value="" style="display: none;" id="form_submit">
 		</form>
 	</div>
@@ -266,7 +266,7 @@
 				</figure>
 				<figure class="item">
 					<img id="output_img" src="" alt="output image">
-					<figcaption class="fig_t">MIP APPLIED IMAGE</figcaption>
+					<figcaption class="fig_t">RESTORED IMAGE</figcaption>
 				</figure>
 			</div>
 		</div>
@@ -304,7 +304,7 @@
         </figure>
         <figure class="item">
           <img id="hist_out" alt="histogram of output image">
-          <figcaption class="fig_t">HISTOGRAM OF MIP APPLIED IMAGE</figcaption>
+          <figcaption class="fig_t">HISTOGRAM OF RESTORED IMAGE</figcaption>
         </figure>
       </div>
     </div>
